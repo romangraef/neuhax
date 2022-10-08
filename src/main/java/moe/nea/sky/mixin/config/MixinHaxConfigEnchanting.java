@@ -21,8 +21,8 @@ public class MixinHaxConfigEnchanting implements HaxConfigEnchanting {
 
     @Expose
     @ConfigOption(name = "Auto solve speed", desc = "How fast you can press the button to solve, in milliseconds")
-    @ConfigEditorSlider(minValue = 10, maxValue = 500, minStep = 10)
-    public int neuHaxTimeout = 100;
+    @ConfigEditorSlider(minValue = 0, maxValue = 500, minStep = 10)
+    public int neuHaxTimeout = 50;
 
     @Override
     public int getNeuHaxSolveKeybinding() {

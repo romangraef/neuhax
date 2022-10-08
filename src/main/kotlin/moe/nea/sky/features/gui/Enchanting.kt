@@ -47,6 +47,7 @@ object Enchanting {
         val content = guiChest.inventorySlots as? ContainerChest ?: return
         if (!NotEnoughUpdates.INSTANCE.config.enchantingSolvers.enableEnchantingSolvers) return
         if (config.neuHaxSolveKeybinding != Keyboard.getEventKey()) return
+        if (!Keyboard.getEventKeyState()) return
         if (!timer.markIfAtLeastPassed(config.neuHaxTimeout.milliseconds)) return
         LOGGER.debug("Solver: ${EnchantingSolvers.currentSolver}")
         val timerStack = content.lowerChestInventory.getStackInSlot(content.lowerChestInventory.sizeInventory - 5)
