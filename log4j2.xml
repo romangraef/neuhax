@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <!-- Filter out Hypixel scoreboard and sound errors -->
+    <RegexFilter status="WARN"
+                 regex="Error executing task.*|Unable to play unknown soundEvent.*|Zip file .* failed to read properly, it will be ignored.*|There was a problem reading the entry META-INF/versions/9/module-info.class in the jar .*|Unable to read a class file correctly.*|Mixing .* from mixins.notenoughupdates.json.*|The jar file .* has a security seal for path .*|The jar file .* is trying to seal already secured path .*"
+                 onMatch="DENY"
+                 onMismatch="NEUTRAL"/>
+    <Loggers>
+        <Logger name="NEUHaxEnchanting" level="debug"/>
+    </Loggers>
+</Configuration>

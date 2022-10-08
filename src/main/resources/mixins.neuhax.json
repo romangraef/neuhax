@@ -1,0 +1,16 @@
+{
+  "package": "moe.nea.sky.mixin",
+  "refmap": "mixins.neuhax.refmap.json",
+  "minVersion": "0.7",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinEnchantingSolvers",
+    "MixinFMLHandshakeMessageModList",
+    "MixinGlowingMushroomHighlighter",
+    "MixinUltrasequencerItem",
+    "config.MixinHaxConfigEnchanting",
+    "config.MixinHaxConfigWorld"
+  ],
+  "client": [
+  ]
+}
