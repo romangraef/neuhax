@@ -50,7 +50,7 @@ object Enchanting {
         if (!Keyboard.getEventKeyState()) return
         if (!timer.markIfAtLeastPassed(config.neuHaxTimeout.milliseconds)) return
         LOGGER.debug("Solver: ${EnchantingSolvers.currentSolver}")
-        val timerStack = content.lowerChestInventory.getStackInSlot(content.lowerChestInventory.sizeInventory - 5)
+        val timerStack = content.lowerChestInventory.getStackInSlot(content.lowerChestInventory.sizeInventory - 5) ?: return
         if (timerStack.item != Items.clock) return
         when (EnchantingSolvers.currentSolver) {
             EnchantingSolvers.SolverType.CHRONOMATRON -> {

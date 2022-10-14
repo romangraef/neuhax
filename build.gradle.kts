@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "moe.nea.sky"
-version = "1.0.0"
+version = "1.0.1"
 
 // Toolchains:
 java {
@@ -126,3 +126,9 @@ tasks.shadowJar {
 
 tasks.assemble.get().dependsOn(tasks.remapJar)
 
+tasks.processResources {
+    inputs.property("version", version)
+    filesMatching("mcmod.info") {
+        expand("version" to version)
+    }
+}
