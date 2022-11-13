@@ -6,6 +6,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     kotlin("jvm") version "1.7.10"
     kotlin("plugin.serialization") version "1.7.10"
+    id("org.cadixdev.licenser") version "0.6.1"
 }
 
 group = "moe.nea.sky"
@@ -85,11 +86,21 @@ loom {
         mixinConfig("mixins.neuhax.json")
     }
     // If you don't want mixins, remove these lines
+    @Suppress("UnstableApiUsage")
     mixin {
         defaultRefmapName.set("mixins.neuhax.refmap.json")
     }
 }
 
+
+license {
+    header(project.file("HEADER.txt"))
+    properties {
+        set("name", "Linnea Gräf")
+        set("year", 2022)
+    }
+    skipExistingHeaders(true)
+}
 
 // Tasks:
 
