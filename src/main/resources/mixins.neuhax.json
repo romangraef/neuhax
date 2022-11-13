@@ -6,9 +6,10 @@
   "mixins": [
     "MixinEnchantingSolvers",
     "MixinFMLHandshakeMessageModList",
-    "MixinGlowingMushroomHighlighter",
+    "MixinGenericBlockHighlighter",
     "MixinUltrasequencerItem",
     "config.MixinHaxConfigEnchanting",
+    "config.MixinHaxConfigFishing",
     "config.MixinHaxConfigWorld"
   ],
   "client": [

@@ -2,6 +2,7 @@ package moe.nea.sky
 
 import moe.nea.sky.commands.NEUHaxCommand
 import moe.nea.sky.features.gui.Enchanting
+import moe.nea.sky.features.world.AutoFishing
 import moe.nea.sky.util.CommandActionRegistry
 import net.minecraft.launchwrapper.Launch
 import net.minecraftforge.client.ClientCommandHandler
@@ -29,8 +30,9 @@ object NEUHax {
 
     @EventHandler
     fun onInit(event: FMLInitializationEvent) {
-        listOf<Any>(
-            Enchanting
+        listOf(
+            Enchanting,
+            AutoFishing,
         ).forEach {
             MinecraftForge.EVENT_BUS.register(it)
         }

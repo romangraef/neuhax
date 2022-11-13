@@ -16,18 +16,18 @@ public class MixinHaxConfigWorld implements HaxConfigWorld {
     public boolean neuHaxAccordion = false;
 
     @Expose
-    @ConfigOption(name = "Mushroom Wallhacks", desc = "See glowing mushrooms through walls")
+    @ConfigOption(name = "Wallhacks", desc = "See highlighted blocks through walls")
     @ConfigAccordionId(id = 10000)
     @ConfigEditorBoolean
     public boolean neuHaxMushroomWallhacks = true;
 
     @Override
-    public boolean getNeuHaxMushroomWallhacks() {
+    public boolean getNeuHaxWallhacks() {
         return this.neuHaxMushroomWallhacks;
     }
 
     @Override
-    public void setNeuHaxMushroomWallhacks(boolean b) {
+    public void setNeuHaxWallhacks(boolean b) {
         this.neuHaxMushroomWallhacks = b;
     }
 }
