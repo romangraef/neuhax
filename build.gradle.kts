@@ -6,11 +6,13 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     kotlin("jvm") version "1.7.10"
     kotlin("plugin.serialization") version "1.7.10"
+    `maven-publish`
     id("org.cadixdev.licenser") version "0.6.1"
+    signing
 }
 
-group = "moe.nea.sky"
-version = "1.0.1"
+group = "moe.nea"
+version = "1.0.2"
 
 // Toolchains:
 java {
@@ -143,3 +145,47 @@ tasks.processResources {
         expand("version" to version)
     }
 }
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifact(tasks.remapJar) {
+                classifier = "thicc"
+            }
+            artifact(tasks.jar) {
+                classifier = ""
+            }
+            pom {
+                name.set(project.name)
+                description.set("Quality of Life Addons of dubious legality for NotEnoughUpdates")
+                licenses {
+                    license {
+                        name.set("GPL-3.0-or-later")
+                    }
+                }
+                developers {
+                    developer {
+                        name.set("Linnea Gräf")
+                    }
+                }
+                scm {
+                    url.set("https://git.nea.moe/nea/neuhax")
+                }
+            }
+        }
+    }
+    repositories {
+        maven("https://repo.nea.moe/releases") {
+            name = "neamoeReleases"
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+    }
+}
+
+signing {
+    useGpgCmd()
+    sign(publishing.publications["maven"])
+}
+
