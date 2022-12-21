@@ -53,6 +53,7 @@ object AutoFishing {
 
     @SubscribeEvent
     fun onTick(ev: TickEvent.ClientTickEvent) {
+        if (mc.currentScreen != null) return
         if (ev.phase != TickEvent.Phase.END) return
         val p = mc.thePlayer ?: return
         if (shouldReengage) {
@@ -69,7 +70,7 @@ object AutoFishing {
             return
         }
         if (FishingHelper.getInstance().warningState != FishingHelper.PlayerWarningState.FISH_HOOKED) return
-        if (lastFishingHook != p.fishEntity && shouldAutoFish()) {
+        if (lastFishingHook != p.fishEntity && p.fishEntity != null && shouldAutoFish()) {
             mc.playerController.sendUseItem(p, p.worldObj, p.heldItem)
             lastFishingHook = p.fishEntity
             if (config.neuHaxReengageFishingRod) {
