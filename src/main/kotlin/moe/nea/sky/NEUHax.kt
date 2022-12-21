@@ -10,8 +10,11 @@
 
 package moe.nea.sky
 
+import io.github.moulberry.notenoughupdates.NotEnoughUpdates
 import moe.nea.sky.commands.NEUHaxCommand
+import moe.nea.sky.config.HaxConfigNeuConfig
 import moe.nea.sky.features.gui.Enchanting
+import moe.nea.sky.features.gui.Melody
 import moe.nea.sky.features.world.AutoFishing
 import moe.nea.sky.util.CommandActionRegistry
 import net.minecraft.launchwrapper.Launch
@@ -31,6 +34,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 )
 object NEUHax {
 
+    val neuHaxConfig get() = (NotEnoughUpdates.INSTANCE.config as HaxConfigNeuConfig).neuHax
+
     val deobf by lazy { Launch.blackboard["fml.deobfuscatedEnvironment"] == true }
 
     @EventHandler
@@ -43,6 +48,7 @@ object NEUHax {
         listOf(
             Enchanting,
             AutoFishing,
+            Melody,
         ).forEach {
             MinecraftForge.EVENT_BUS.register(it)
         }

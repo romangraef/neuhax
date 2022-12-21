@@ -10,6 +10,7 @@
     "MixinUltrasequencerItem",
     "config.MixinHaxConfigEnchanting",
     "config.MixinHaxConfigFishing",
+    "config.MixinHaxConfigNeuConfig",
     "config.MixinHaxConfigWorld"
   ],
   "client": [
