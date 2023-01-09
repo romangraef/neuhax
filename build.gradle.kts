@@ -99,7 +99,7 @@ license {
     header(project.file("HEADER.txt"))
     properties {
         set("name", "Linnea Gräf")
-        set("year", 2022)
+        set("year", 2023)
     }
     skipExistingHeaders(true)
 }
