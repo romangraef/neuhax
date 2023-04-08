@@ -73,7 +73,7 @@ loom {
             // If you don't want mixins, remove these lines
             property("mixin.debug", "true")
             property("asmhelper.verbose", "true")
-            arg("--tweakClass", "cc.polyfrost.oneconfigwrapper.OneConfigWrapper")
+            arg("--tweakClass", "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker")
             arg("--mixin", "mixins.neuhax.json")
             val modFiles = runtimeMod.files
             arg("--mods", modFiles.joinToString(",") { it.relativeTo(file("run")).path })
@@ -117,7 +117,7 @@ tasks.withType(Jar::class) {
         this["ForceLoadAsMod"] = "true"
 
         // If you don't want mixins, remove these lines
-        this["TweakClass"] = "cc.polyfrost.oneconfigwrapper.OneConfigWrapper"
+        this["TweakClass"] = "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker"
         this["MixinConfigs"] = "mixins.neuhax.json"
     }
 }
