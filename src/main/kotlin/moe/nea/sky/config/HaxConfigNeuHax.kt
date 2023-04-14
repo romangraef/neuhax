@@ -11,8 +11,7 @@
 package moe.nea.sky.config
 
 import com.google.gson.annotations.Expose
-import io.github.moulberry.notenoughupdates.core.config.annotations.ConfigEditorBoolean
-import io.github.moulberry.notenoughupdates.core.config.annotations.ConfigOption
+import io.github.moulberry.notenoughupdates.core.config.annotations.*
 
 class HaxConfigNeuHax {
 
@@ -25,4 +24,38 @@ class HaxConfigNeuHax {
     @JvmField
     var autoMelody: Boolean = false
 
+    @ConfigOption(name = "Yaw Snapping", desc = "")
+    @ConfigEditorAccordion(id = 6)
+    @JvmField
+    var yawSnappingAccordion = false
+
+    @Expose
+    @ConfigOption(name = "Enable Yaw Snapping", desc = "Align your yaw with certain angles")
+    @ConfigEditorBoolean
+    @JvmField
+
+    @ConfigAccordionId(id = 6)
+    var yawSnapping = false
+
+    @Expose
+    @ConfigOption(name = "Release Distance", desc = "How much you have to overshoot an angle to release yaw snapping")
+    @ConfigEditorSlider(minValue = 0F, maxValue = 180F, minStep = 1F)
+    @ConfigAccordionId(id = 6)
+    @JvmField
+
+    var yawTightness = 90f
+
+    @Expose
+    @ConfigOption(name = "Intervals", desc = "In which intervals do you want to enable yaw snapping (45°, 90°, etc.)")
+    @ConfigEditorSlider(minValue = 1F, maxValue = 180F, minStep = 1F)
+    @ConfigAccordionId(id = 6)
+    @JvmField
+    var yawIntervals = 45f
+
+    @JvmField
+    @Expose
+    @ConfigOption(name = "Yaw Overlay", desc = "Display your current yaw over your cursor")
+    @ConfigEditorBoolean
+    @ConfigAccordionId(id = 6)
+    var displayYawOverlay = true
 }

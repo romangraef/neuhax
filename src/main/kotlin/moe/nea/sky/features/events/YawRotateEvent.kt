@@ -8,19 +8,10 @@
  * You should have received a copy of the GNU General Public License along with NEUHax. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package moe.nea.sky.mixin;
+package moe.nea.sky.features.events
 
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import net.minecraftforge.fml.common.eventhandler.Cancelable
+import net.minecraftforge.fml.common.eventhandler.Event
 
-@Pseudo
-@Mixin(targets = "gg.skytils.skytilsmod.features.impl.misc.Funny", remap = false)
-public class MixinSkytilsFunnny {
-    @Inject(method = "joinedSkyblock*", at=@At("HEAD"), expect = 0, cancellable = true, remap = false)
-    public void onJoinedSkyblockHead(CallbackInfo ci) {
-        ci.cancel();
-    }
-}
+@Cancelable
+data class YawRotateEvent(val yawDelta: Float, val oldYaw: Float) : Event()

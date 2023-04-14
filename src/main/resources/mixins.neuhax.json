@@ -8,6 +8,7 @@
     "MixinFMLHandshakeMessageModList",
     "MixinGenericBlockHighlighter",
     "MixinSkytilsFunnny",
+    "MixinEntity",
     "MixinUltrasequencerItem",
     "config.MixinHaxConfigEnchanting",
     "config.MixinHaxConfigFishing",

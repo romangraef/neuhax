@@ -16,6 +16,7 @@ import moe.nea.sky.config.HaxConfigNeuConfig
 import moe.nea.sky.features.gui.Enchanting
 import moe.nea.sky.features.gui.Melody
 import moe.nea.sky.features.world.AutoFishing
+import moe.nea.sky.features.world.YawSnapping
 import moe.nea.sky.util.CommandActionRegistry
 import net.minecraft.launchwrapper.Launch
 import net.minecraftforge.client.ClientCommandHandler
@@ -48,6 +49,7 @@ object NEUHax {
         listOf(
             Enchanting,
             AutoFishing,
+            YawSnapping,
             Melody,
         ).forEach {
             MinecraftForge.EVENT_BUS.register(it)
