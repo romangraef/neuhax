@@ -10,7 +10,7 @@
 
 package moe.nea.sky.mixin;
 
-import moe.nea.sky.features.events.YawRotateEvent;
+import moe.nea.sky.events.YawRotateEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;

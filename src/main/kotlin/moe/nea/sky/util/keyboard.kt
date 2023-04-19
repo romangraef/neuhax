@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Linnea Gräf
+ * Copyright (C) 2023 Linnea Gräf
  *
  * This file is part of NEUHax.
  *
@@ -8,10 +8,11 @@
  * You should have received a copy of the GNU General Public License along with NEUHax. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package moe.nea.sky
+package moe.nea.sky.util
 
-import org.apache.logging.log4j.LogManager
+import net.minecraftforge.fml.common.gameevent.InputEvent
+import org.lwjgl.input.Keyboard
 
+fun InputEvent.KeyInputEvent.getEffectiveKeyCode(): Int =
+    if (Keyboard.getEventKey() == 0) Keyboard.getEventCharacter().code + 256 else Keyboard.getEventKey()
 
-val LOGGER = LogManager.getLogger("NEUHax")
-const val MODID = "neuhax"

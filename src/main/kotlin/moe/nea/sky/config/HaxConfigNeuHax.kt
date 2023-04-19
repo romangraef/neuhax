@@ -12,6 +12,7 @@ package moe.nea.sky.config
 
 import com.google.gson.annotations.Expose
 import io.github.moulberry.notenoughupdates.core.config.annotations.*
+import org.lwjgl.input.Keyboard
 
 class HaxConfigNeuHax {
 
@@ -33,7 +34,6 @@ class HaxConfigNeuHax {
     @ConfigOption(name = "Enable Yaw Snapping", desc = "Align your yaw with certain angles")
     @ConfigEditorBoolean
     @JvmField
-
     @ConfigAccordionId(id = 6)
     var yawSnapping = false
 
@@ -42,7 +42,6 @@ class HaxConfigNeuHax {
     @ConfigEditorSlider(minValue = 0F, maxValue = 180F, minStep = 1F)
     @ConfigAccordionId(id = 6)
     @JvmField
-
     var yawTightness = 90f
 
     @Expose
@@ -58,4 +57,11 @@ class HaxConfigNeuHax {
     @ConfigEditorBoolean
     @ConfigAccordionId(id = 6)
     var displayYawOverlay = true
+
+    @JvmField
+    @Expose
+    @ConfigOption(name = "Yaw Snapping Keybinding", desc = "Press to toggle yaw snapping")
+    @ConfigEditorKeybind(defaultKey = Keyboard.KEY_NONE)
+    @ConfigAccordionId(id = 6)
+    var yawSnappingKeybinding = Keyboard.KEY_NONE
 }

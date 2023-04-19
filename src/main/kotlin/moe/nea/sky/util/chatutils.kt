@@ -10,6 +10,7 @@
 
 package moe.nea.sky.util
 
+import net.minecraft.client.Minecraft
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
 import net.minecraft.event.ClickEvent
@@ -95,6 +96,10 @@ class MessageTarget {
         return comp
     }
 
+}
+
+fun showPlayerMessage(mode: MessageMode = MessageMode.INFO, block: MessageTarget.() -> Unit) {
+    Minecraft.getMinecraft().thePlayer?.showMessage(mode, block)
 }
 
 fun ICommandSender.showMessage(mode: MessageMode = MessageMode.INFO, block: MessageTarget.() -> Unit) {

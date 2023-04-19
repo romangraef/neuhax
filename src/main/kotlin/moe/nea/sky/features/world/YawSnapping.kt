@@ -12,13 +12,18 @@ package moe.nea.sky.features.world
 
 import io.github.moulberry.notenoughupdates.core.util.render.TextRenderUtils
 import moe.nea.sky.NEUHax
-import moe.nea.sky.features.events.YawRotateEvent
+import moe.nea.sky.events.YawRotateEvent
+import moe.nea.sky.util.getEffectiveKeyCode
+import moe.nea.sky.util.showPlayerMessage
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.gui.ScaledResolution
 import net.minecraft.client.renderer.GlStateManager
+import net.minecraft.util.EnumChatFormatting.*
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
+import org.lwjgl.input.Keyboard
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
@@ -28,7 +33,6 @@ object YawSnapping {
         /*LorenzUtils.inSkyBlock && // */
         NEUHax.neuHaxConfig.yawSnapping
 
-
     var overshot = 0F
     var isLocking = false
 
@@ -36,6 +40,19 @@ object YawSnapping {
         get() =
             generateSequence(0F) { it + NEUHax.neuHaxConfig.yawIntervals }
                 .takeWhile { it <= 360 }
+
+
+    @SubscribeEvent
+    fun onKeybind(event: KeyInputEvent) {
+        if (!Keyboard.getEventKeyState()) return
+
+        if (event.getEffectiveKeyCode() == NEUHax.neuHaxConfig.yawSnappingKeybinding) {
+            NEUHax.neuHaxConfig.yawSnapping = !NEUHax.neuHaxConfig.yawSnapping
+            showPlayerMessage {
+                text("Yaw Snapping ${if (isEnabled()) "${GREEN}Enabled" else "${RED}Disabled"}")
+            }
+        }
+    }
 
     @SubscribeEvent
     fun onRenderOverlay(event: RenderGameOverlayEvent.Post) {

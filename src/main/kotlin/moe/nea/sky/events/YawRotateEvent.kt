@@ -8,7 +8,7 @@
  * You should have received a copy of the GNU General Public License along with NEUHax. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package moe.nea.sky.features.events
+package moe.nea.sky.events
 
 import net.minecraftforge.fml.common.eventhandler.Cancelable
 import net.minecraftforge.fml.common.eventhandler.Event
